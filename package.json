@@ -1,0 +1,14 @@
+{
+  "name": "cautious-telegram",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Prototype Discord-like client-server app (text channels + WebRTC signaling scaffold)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.8.1"
+  }
+}
