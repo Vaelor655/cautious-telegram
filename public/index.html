@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proto Discord - Client/Server</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, Arial, sans-serif;
+        background: #1e1f22;
+        color: #f2f3f5;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        height: 100vh;
+      }
+      .sidebar {
+        background: #2b2d31;
+        padding: 16px;
+        border-right: 1px solid #1a1b1e;
+      }
+      .channels button {
+        width: 100%;
+        margin-bottom: 8px;
+        padding: 8px;
+        border: 0;
+        border-radius: 6px;
+        color: #f2f3f5;
+        background: #3f4147;
+        cursor: pointer;
+        text-align: left;
+      }
+      .channels button.active {
+        background: #5865f2;
+      }
+      main {
+        display: grid;
+        grid-template-rows: 1fr auto;
+      }
+      #messages {
+        list-style: none;
+        margin: 0;
+        padding: 16px;
+        overflow-y: auto;
+      }
+      #messages li {
+        margin-bottom: 8px;
+        padding: 8px;
+        border-radius: 6px;
+        background: #2b2d31;
+      }
+      form {
+        padding: 12px;
+        display: flex;
+        gap: 8px;
+        border-top: 1px solid #1a1b1e;
+      }
+      input {
+        flex: 1;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #3f4147;
+        background: #1e1f22;
+        color: #fff;
+      }
+      .muted {
+        color: #a6abb2;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <h3>Channels</h3>
+        <div id="channels" class="channels"></div>
+        <p class="muted">MVP texte + signalisation WebRTC.</p>
+      </aside>
+      <main>
+        <ul id="messages"></ul>
+        <form id="composer">
+          <input id="author" placeholder="Ton pseudo" maxlength="24" value="guest" />
+          <input id="text" placeholder="Message..." maxlength="2000" />
+          <button type="submit">Envoyer</button>
+        </form>
+      </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
